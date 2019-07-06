@@ -18,7 +18,7 @@
  $ mkdir -p ~/.vim/plugin && mkdir -p ~/.vim/bundle
  
  3. close this file to local.
- $ git clone --
+ $ git clone https://github.com/Jaylon/vimrc_jilong.git
  
  4. Change name
  $ mv vimrc_jilong ~/.vimrc
