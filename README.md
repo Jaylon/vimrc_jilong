@@ -35,8 +35,8 @@
  $ cp /usr/share/vim/addons/plugin/gtags*.vim ~/.vim/plugin
  
  Method 2:
- $ wget http://tamacom.com/global/global-6.6.3.tar 
- un-tar and cd global-6.6.3, see INSTALL
+ $ wget http://tamacom.com/global/global-6.6.3.tar
+ $ uncompress tar ball, cd global-6.6.3, and then see INSTALL
  $ ./configure
  $ sudo make && make install
  $ mkdir ~/.vim/plugin
