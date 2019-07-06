@@ -29,8 +29,8 @@
  6 Launch vim and run :PluginInstall
  
  7 If you want to use global - Gtags
- Method 1: 
- Ubuntu- 
+ 
+ Method 1 only for Ubuntu:  
  $ sudo apt-get install global
  $ cp /usr/share/vim/addons/plugin/gtags*.vim ~/.vim/plugin
  
