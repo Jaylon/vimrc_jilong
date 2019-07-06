@@ -98,7 +98,7 @@ function s:SetCursorLine()
 endfunction
 autocmd VimEnter * call s:SetCursorLine()
 
-map Q gq
+"map Q gq
 if has("autocmd")
 
   " Enable file type detection.
@@ -140,7 +140,7 @@ set showcmd
 set pastetoggle=<F3>
 
 " 用<F5>开启/关闭拼写检查
-nnoremap <F5> :set spell!<CR>
+"nnoremap <F5> :set spell!<CR>
 
 " :set foldcolumn=0<CR>
 
@@ -157,7 +157,7 @@ set hlsearch
 set ignorecase  
 
 " 当搜索的时候尝试smart  
-set smartcase  
+"set smartcase  
 
  " 使用Backspace直接删除tab  
  set smarttab  
@@ -185,7 +185,7 @@ filetype plugin on
 filetype plugin indent on
 
 " 智能补全
-set completeopt=longest,menu
+"set completeopt=longest,menu
 
 " 设置历史记录为50条
 set history=50
@@ -197,9 +197,9 @@ set history=50
 set ruler
 
 " 括号引号补全
-" :inoremap ( ()<ESC>i
-" :inoremap { {<CR>}<ESC>O
-" :inoremap [ []<ESC>i
+inoremap ( ()<ESC>i
+inoremap { {<CR>}<ESC>O
+inoremap [ []<ESC>i
 
 " 折叠设置
 set foldmethod=syntax " 用语法高亮来定义折叠
@@ -217,7 +217,7 @@ nnoremap <C-N> :nohl<CR>
 " nnoremap m :call cursor(0, len(getline('.'))/2)<CR>
 
 " 映射m为移动到当前光标与行尾的中部, 行内二分跳转
-" nnoremap m :call cursor(0 , col('.')+(len(getline('.'))- col('.'))/2)<CR>
+ nnoremap m :call cursor(0 , col('.')+(len(getline('.'))- col('.'))/2)<CR>
 
 " vim中复制到系统剪切板, 需要apt-get install vim-gnome
 " place yanked text into the global clipboard, and paste from the global clipboard
@@ -245,7 +245,7 @@ else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.\+', -1)
 endif
 " 80字符提示线颜色, 需要在colorscheme后面方可生效
-hi ColorColumn ctermbg=black guibg=NONE
+"hi ColorColumn ctermbg=black guibg=NONE
 
 " 将ejs文件高亮当做html来处理
 " au BufNewFile,BufRead *.ejs set filetype=html
@@ -357,7 +357,7 @@ function! NERDTree_IsValid()
 endfunction
 
 " 键盘映射，同时加入防止因winmanager和nerdtree冲突而导致空白页的语句
-nmap <silent> wm :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
+nmap wm :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 "nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 "nnoremap wm :WMToggle<CR>
 " 窗口布局
@@ -535,7 +535,7 @@ let g:ctrlp_max_files=0
 " nnoremap yg :YcmGenerateConfig<CR>
 
 " Add full file path to your existing statusline
-set laststatus=2
-set statusline+=%f
+"set laststatus=2
+"set statusline+=%f
 
 
