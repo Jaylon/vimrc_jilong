@@ -36,7 +36,7 @@
  
  Method 2:
  $ wget http://tamacom.com/global/global-6.6.3.tar 
- # un-tar and cd global-6.6.3, see INSTALL
+ un-tar and cd global-6.6.3, see INSTALL
  $ ./configure
  $ sudo make && make install
  $ mkdir ~/.vim/plugin
