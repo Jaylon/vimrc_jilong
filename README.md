@@ -10,7 +10,7 @@
  7. Tag List
  
 ---------------
- First time to run this .vimrc script should do: 
+First time to run this .vimrc script should do: 
  1. Backup original vim files. 
  $ mv ~/.vim ~/vim_bk && mv ~/.vimrc vimrc_bk
  
