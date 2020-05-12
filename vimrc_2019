@@ -37,7 +37,7 @@
 " $ cp /usr/share/vim/addons/plugin/gtags*.vim ~/.vim/plugin
 " 
 " Method 2:
-" $ wget http://tamacom.com/global/global-6.6.3.tar
+" $ wget https://ftp.gnu.org/pub/gnu/global/global-6.6.4.tar.gz
 " $ uncompress tar ball, cd global-6.6.3, and then see INSTALL
 " $ ./configure
 " $ sudo make && make install
@@ -163,7 +163,7 @@ set ignorecase
  set smarttab  
 
  " 设置打开文件的编码格式  
- "set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1  
+ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1  
 
  set helplang=cn 
 
@@ -197,9 +197,9 @@ set history=50
 set ruler
 
 " 括号引号补全
-inoremap ( ()<ESC>i
+"inoremap ( ()<ESC>i
 inoremap { {<CR>}<ESC>O
-inoremap [ []<ESC>i
+"inoremap [ []<ESC>i
 
 " 折叠设置
 set foldmethod=syntax " 用语法高亮来定义折叠
@@ -358,13 +358,13 @@ endfunction
 
 " 键盘映射，同时加入防止因winmanager和nerdtree冲突而导致空白页的语句
 nmap wm :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
-"nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
+"nmap <silent> <F4> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 "nnoremap wm :WMToggle<CR>
 " 窗口布局
 let g:winManagerWindowLayout='NERDTree|TagList'
 "let g:winManagerWindowLayout='TagList'
 " 设置winmanager的宽度，默认为25
-let g:winManagerWidth=30
+let g:winManagerWidth=25
 " 如果所有编辑文件都关闭了，退出vim
 let g:persistentBehaviour=0
 " Open winmanager auto
@@ -374,9 +374,9 @@ let g:AutoOpenWinManager=1
 " 控制当光标移动超过一定距离时，是否自动将焦点调整到屏中心
 let NERDTreeAutoCenter=1
 " 指定鼠标模式（1.双击打开；2.单目录双文件；3.单击打开）
-" let NERDTreeMouseMode=2
+ let NERDTreeMouseMode=2
 " 是否默认显示书签列表
-" let NERDTreeShowBookmarks=1
+ let NERDTreeShowBookmarks=1
 " 是否默认显示文件
 let NERDTreeShowFiles=1
 " 是否默认显示隐藏文件
@@ -386,21 +386,23 @@ let NERDTreeShowFiles=1
 " 窗口位置（'left' or 'right'）
 let NERDTreeWinPos='right'
 " 窗口宽
-let NERDTreeWinSize=28
+let NERDTreeWinSize=20
 
 "设置树的显示图标
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeIgnore = ['\.o$']  " 过滤所有.pyc文件不显示
+let NERDTreeIgnore = ['\.o$', '\.a$', '\.so$', '\.d$', '\.pm$', '\.map$',]  " 过滤所有.pyc文件不显示
 "let g:NERDTreeShowLineNumbers=1  " 是否显示行号
 "Making it prettier
-"let NERDTreeMinimalUI = 1
+let NERDTreeMinimalUI = 1
 "let NERDTreeDirArrows = 1
-nnoremap tree :NERDTreeToggle<CR>
-"let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
+nnoremap nerd :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
 "打开vim时如果没有文件自动打开NERDTree
 "当NERDTree为剩下的唯一窗口时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeToggle") && b:NERDTree.isTabTree()) | q | endif
 
 " taglist设置
 let Tlist_Show_One_File=1 " 0为同时显示多个文件函数列表,1则只显示当前文件函数列表
@@ -422,16 +424,16 @@ map <F1> :TlistToggle<CR>
 " 添加系统调用路径
 
 " Cscope 设置
-set tags=$PWD/tags
-cs add $PWD/cscope.out
-if filereadable("cscope.out")
-	cs add cscope.out
-endif
+"set tags=$PWD/tags
+"cs add $PWD/cscope.out
+"if filereadable("cscope.out")
+"	cs add cscope.out
+"endif
 
 " 手动刷新tags(含cscope)
 nnoremap tg :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q *<CR>:set tags+=./tags<CR>:!cscope -Rbq<CR>:cs add ./cscope.out .<CR>
 " 设置快捷键<F4>, 添加当前目录下的cscope.out文件
-"map <F4> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
+map <F4> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
 "imap <F4> <ESC>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
 "对:cs find c等Cscope查找命令进行映射
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -512,14 +514,14 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_max_files=0
 
 " syntastic 设置
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_enable_balloons = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_balloons = 1
 "let g:syntastic_error_symbol = '✗'
 "let g:syntastic_warning_symbol = '►'
-"let g:syntastic_check_on_wq = 1
-"let g:syntastic_cpp_checkers = ['gcc']
-"let g:syntastic_cpp_compiler = 'gcc'
-"let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_check_on_wq = 1
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 
 " You Complete Me
@@ -535,7 +537,7 @@ let g:ctrlp_max_files=0
 " nnoremap yg :YcmGenerateConfig<CR>
 
 " Add full file path to your existing statusline
-"set laststatus=2
-"set statusline+=%f
+set laststatus=2
+set statusline+=%f
 
 
