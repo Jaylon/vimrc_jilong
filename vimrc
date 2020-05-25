@@ -11,6 +11,7 @@
 " 6. NERD Tree
 " 7. Tag List
 " 8. Vim syntax highlighting for c, bison, flex
+" 9. C Syntax Highlighting Extension for Vim
 " 
 "---------------
 " First time to run this .vimrc script should do: 
@@ -49,6 +50,12 @@
 " git clone git@github.com:justinmk/vim-syntax-extra.git
 " cp vim-syntax-extra/after ~/.vim/ -rf
 " cp vim-syntax-extra/plugin/*.vim  ~/.vim/plugin
+" DO NOT RECOMMEND. USE 9th.
+"
+" 9. C Syntax Highlighting Extension for Vim
+" git clone git@github.com:agfline/c-syntax.vim.git
+" Simply put the c.vim file in ~/.vim/after/syntax/, and make sure you have syntax on in your ~/.vimrc file.
+" This 9th is better than above 8th. Recommend.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 设置vi兼容性，设置为不兼容以避免vi限制
