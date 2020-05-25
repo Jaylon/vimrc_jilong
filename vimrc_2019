@@ -10,6 +10,7 @@
 " 5. gruvbox, vim color scheme
 " 6. NERD Tree
 " 7. Tag List
+" 8. Vim syntax highlighting for c, bison, flex
 " 
 "---------------
 " First time to run this .vimrc script should do: 
@@ -43,6 +44,11 @@
 " $ sudo make && make install
 " $ mkdir ~/.vim/plugin
 " $ cp gtags.vim gtags-cscope.vim ~/.vim/plugin 
+" 
+" 8. Vim syntax highlighting for c, bison, flex
+" git clone git@github.com:justinmk/vim-syntax-extra.git
+" cp vim-syntax-extra/after ~/.vim/ -rf
+" cp vim-syntax-extra/plugin/*.vim  ~/.vim/plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 设置vi兼容性，设置为不兼容以避免vi限制
