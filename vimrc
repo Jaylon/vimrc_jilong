@@ -553,4 +553,11 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 set laststatus=2
 set statusline+=%f
 
+" 'g' + 'd'    高亮显示光标所属单词，"n" 查找！
+
+" 文件保存后依然可以执行undo操作恢复修改
+" tell it to use an undo file
+set undofile
+" set a directory to store the undo history
+set undodir=/home/yourname/.vimundo/
 
